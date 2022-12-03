@@ -132,8 +132,7 @@ function devuelveBits() {
   arr_ip = funcion_restringe(arr_ip);
 
   if (restringe == true) {
-    let salida  = "Analizando ip: "+ cadena +"..."+"<br>";
-    document.getElementById("content").innerHTML = salida;
+    let salida  = "Analizando ip: "+ cadena +"/..."+"<br><br>";
     console.log(arr_ip);
 
     // funcion para convertir ip a bits
@@ -144,7 +143,12 @@ function devuelveBits() {
     // funcion para invertir bits...
     arr_ip = invertirBits(arr_ip);
     console.log(arr_ip);
-    
+
+    cadena = arr_ip.toString();
+    cadena = cadena.replaceAll(',', '.');
+    salida = salida + "convirtiendo ip a bits..." + "<br>"+cadena;
+    document.getElementById("content").innerHTML = salida;
+
   }
 
   // console.log(resultadoBits);
