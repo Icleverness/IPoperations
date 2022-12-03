@@ -57,6 +57,28 @@ function funcion_restringe(var_arr) {
   }
 }
 
+// Convirtiendo ip a bits...
+function convierteIp_bits(var_arr) {
+
+  let extraeOcteto;
+
+  for (let i = 0; i < 4; i++) {
+    resultadoBits = "";
+    extraeOcteto = var_arr[i];
+    // console.log(var_arr[i]);
+    while (extraeOcteto > 1) {
+      resto = extraeOcteto % 2;
+      extraeOcteto = extraeOcteto / 2;
+      extraeOcteto = parseInt(extraeOcteto);
+      resultadoBits += resto;
+    }
+    // adjuntando número entero/final de la división
+    resultadoBits += extraeOcteto;
+    var_arr[i] = parseInt(resultadoBits);
+  }
+  return var_arr;
+}
+
 // Realizando la conversion...
 function devuelveBits() {
   
@@ -71,13 +93,13 @@ function devuelveBits() {
   arr_ip = funcion_restringe(arr_ip);
 
   if (restringe == true) {
-    let salida  = "Analizando ip: "+ cadena +"...";
+    let salida  = "Analizando ip: "+ cadena +"..."+"<br>";
     document.getElementById("content").innerHTML = salida;
     console.log(arr_ip);
 
     // funcion para convertir ip a bits
     arr_ip = convierteIp_bits(arr_ip);
-    
+
     console.log(arr_ip);
   }
 
