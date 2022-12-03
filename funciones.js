@@ -33,6 +33,40 @@ function devuelveCadenabits(resultadoBitsInvertidos) {
   }
 }
 
+// funcion para invertir bits...
+function invertirBits(var_arr) {
+  for (let i = 0; i < 4; i++) {
+    
+    let cadena = var_arr[i];
+    let arr = cadena.split('');
+    
+    let longitud = arr.length - 1, aux;
+
+    let mitad = parseInt(longitud / 2);
+    let k;
+
+    for (let j = 0; j <= mitad ; j++) {
+      
+      k = longitud;
+      k -= j;
+
+      for (let l = longitud; l > mitad ; l--) {
+        
+        if (l == k) {
+          aux = arr[j];
+          arr[j] = arr[l];
+          arr[l] = aux;
+        }
+      }
+      
+    }
+
+    cadena = arr.toString().replace(/(,)/gm, "");
+    var_arr[i] = cadena;
+  }
+  return var_arr;
+}
+
 // funcion que restringe datos obtenidos...
 function funcion_restringe(var_arr) {
   let aux, contador = 0, bool = true;
@@ -106,6 +140,11 @@ function devuelveBits() {
     arr_ip = convierteIp_bits(arr_ip);
 
     console.log(arr_ip);
+
+    // funcion para invertir bits...
+    arr_ip = invertirBits(arr_ip);
+    console.log(arr_ip);
+    
   }
 
   // console.log(resultadoBits);
