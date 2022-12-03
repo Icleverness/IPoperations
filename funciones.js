@@ -74,7 +74,12 @@ function convierteIp_bits(var_arr) {
     }
     // adjuntando número entero/final de la división
     resultadoBits += extraeOcteto;
-    var_arr[i] = parseInt(resultadoBits);
+
+    while(resultadoBits.length != 8){
+      resultadoBits += 0;
+    }
+
+    var_arr[i] = resultadoBits;
   }
   return var_arr;
 }
@@ -103,22 +108,7 @@ function devuelveBits() {
     console.log(arr_ip);
   }
 
-  // let numero = Number(dic_ip.value);
-
-  // resultadoBits guarda resultado de bits pero invertido
-  // while (numero > 1) {
-  //   resto = numero % 2;
-  //   numero = numero / 2;
-  //   numero = parseInt(numero);
-  //   resultadoBits += resto;
-  // }
-
-  // adjuntando número entero/final de la división
-  // resultadoBits += numero;
-
   // console.log(resultadoBits);
   // document.getElementById("content").innerHTML =
   //   devuelveCadenabits(resultadoBits);
-
-  // resultadoBits = "";
 }
