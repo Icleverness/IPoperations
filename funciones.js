@@ -1,7 +1,7 @@
 let decimal = document.getElementById("dec");
         let resto, resultadoBits = "";
 
-
+        // invirtiendo resultadoBitsInvertidos...
         function devuelveCadenabits(resultadoBitsInvertidos) {
             // transformando de cadena a arreglo...
             let arr = resultadoBitsInvertidos.split('');
@@ -17,10 +17,10 @@ let decimal = document.getElementById("dec");
 
                 for (let j = longitud; j > mitad; j--) {
 
-                    // cambiando de posición de los bits...
+                    // cambiando posición de los bits...
                     if (j == k) {
 
-                        console.log(arr[i], arr[j], j);
+                        // console.log(arr[i], arr[j], j);
                         aux = arr[i];
                         arr[i] = arr[j];
                         arr[j] = aux;
@@ -31,12 +31,11 @@ let decimal = document.getElementById("dec");
                 // convirtiendo de vector a cadena...
                 let bits = arr.toString().replace(/(,)/gm, "");
                 // mostrando resultado final...
-                // document.write(bits);
                 return bits;
             }
-
         }
 
+        // Realizando la conversion...
         function devuelveBits() {
 
             let numero = Number(decimal.value);
