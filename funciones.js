@@ -1,5 +1,5 @@
 let dic_ip = document.getElementById("dec");
-let resto, resultadoBits = "";
+let resto, resultadoBits = "", restringe = false;
 
 // invirtiendo resultadoBitsInvertidos...
 function devuelveCadenabits(resultadoBitsInvertidos) {
@@ -35,7 +35,7 @@ function devuelveCadenabits(resultadoBitsInvertidos) {
 
 // funcion que restringe datos obtenidos...
 function funcion_restringe(var_arr) {
-  let bool = true, aux, contador = 0;
+  let aux, contador = 0, bool = true;
   // restringiendo entrada...
 
   for (let value of var_arr) {
@@ -52,23 +52,34 @@ function funcion_restringe(var_arr) {
       aux = Number(aux);
       var_arr[i] = aux;
     }
+    restringe = true;
     return var_arr;
   }
 }
 
 // Realizando la conversion...
 function devuelveBits() {
-  // función para restringir entrada y convertir de cadena a entero...
+  
   let cadena = dic_ip.value;
-  let salida  = "Analizando ip: "+ cadena +"...";
   let arr_ip = [];
 
   arr_ip = cadena.split(".");
 
   console.log(arr_ip);
 
-  let arr_result = [];
-  arr_result = funcion_restringe(arr_ip);
+  // función para restringir entrada y convertir de cadena a entero...
+  arr_ip = funcion_restringe(arr_ip);
+
+  if (restringe == true) {
+    let salida  = "Analizando ip: "+ cadena +"...";
+    document.getElementById("content").innerHTML = salida;
+    console.log(arr_ip);
+
+    // funcion para convertir ip a bits
+    arr_ip = convierteIp_bits(arr_ip);
+    
+    console.log(arr_ip);
+  }
 
   // let numero = Number(dic_ip.value);
 
@@ -88,8 +99,4 @@ function devuelveBits() {
   //   devuelveCadenabits(resultadoBits);
 
   // resultadoBits = "";
-
-  document.getElementById("content").innerHTML = salida;
-
-  console.log(arr_result);
 }
