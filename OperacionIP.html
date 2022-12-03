@@ -5,16 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <input type="text" id="dec">
-    <button onclick="devuelveBits()">ver</button>
-    <div id="content" style="background-color: burlywood; width: 25%;"></div>
-
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/estilos.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <title>Operationsip</title>
+    </head>
+<body class="bg-light">
+    <h1 class="titulo">Operaciones IP</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="input-group mb-3">
+                        <input type="text" id="dec" class="form-control border-primary" placeholder="192.168.10.2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text border-primary" id="basic-addon2">/</span>
+                        <div>
+                            <input type="text" class="form-control rounded-0 rounded-end border-primary" style="width: 50px;" placeholder="30" aria-label="Server">
+                        </div>
+                        <button type="button" class="btn btn-outline-primary ms-2 rounded-start" onclick="devuelveBits()">Generar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div id="content" class="col-sm-6 border border-primary rounded-3 cuadro-salida"></div>
+            </div>
+        </div>
+    </div>
     <script src="/funciones.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,10 @@
+.titulo{
+    margin-top: 0%;
+    font-family: 'Nerko One', cursive;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.cuadro-salida{
+    height: 200px;
+}
