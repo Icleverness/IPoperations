@@ -124,7 +124,7 @@ function restringe_prefijo(p) {
   
 }
 
-// Realizando la conversion...
+// funcion main...
 function main() {
 
   let pre = prefijo.value;

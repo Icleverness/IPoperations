@@ -1,12 +1,10 @@
 .titulo{
-    margin-top: 0%;
     font-family: 'Nerko One', cursive;
-    font-size: 5rem;
-    text-align: center;
+    font-size: 4.5rem;
 }
 .salida{
     font-family: 'Space Mono', monospace;
 }
 .cuadro-salida{
-    height: 200px;
+    height: 400px;
 }
