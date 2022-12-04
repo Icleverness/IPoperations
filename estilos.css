@@ -11,3 +11,8 @@
 .cuadro-salida{
     height: 400px;
 }
+@media (max-width: 62em){
+    .titulo{
+        font-size: 3rem;
+    }
+}
