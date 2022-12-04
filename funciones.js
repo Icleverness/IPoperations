@@ -1,6 +1,6 @@
 let dic_ip = document.getElementById("dec");
 let prefijo = document.getElementById("pre");
-let resto, resultadoBits = "", restringe = false;
+let resto, resultadoBits = "", restringe = false, restringe_pre = false;
 
 // invirtiendo resultadoBitsInvertidos...
 function devuelveCadenabits(resultadoBitsInvertidos) {
@@ -140,6 +140,21 @@ function convierteIp_bits(var_arr) {
 
 }
 
+function restringe_prefijo(p) {
+
+  let bool = true;
+
+  isNaN(Number(p))? bool = false : bool = true;
+
+  if (bool == true && (p >= 0 && p <= 32)) {
+    
+    restringe_pre = true;
+    return Number(p);
+
+  }
+  
+}
+
 // Realizando la conversion...
 function main() {
 
@@ -149,10 +164,9 @@ function main() {
 
   arr_ip = cadena.split(".");
   arr_ip = funcion_restringe(arr_ip); // función para restringir entrada y convertir de cadena a entero...
-  pre = Number(pre);
-  restringe_prefijo(pre);
+  pre = restringe_prefijo(pre);
 
-  if (restringe == true) {
+  if (restringe == true && restringe_pre == true) {
 
     let salida = `Analizando IP: ${cadena} /${pre}<br><br>`;
     console.log(arr_ip); 
@@ -164,5 +178,5 @@ function main() {
 
     document.getElementById("content").innerHTML = salida;
   }
-
+  restringe_pre = false;
 }
