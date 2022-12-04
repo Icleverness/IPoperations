@@ -2,37 +2,6 @@ let dic_ip = document.getElementById("dec");
 let prefijo = document.getElementById("pre");
 let resto, resultadoBits = "", restringe = false, restringe_pre = false;
 
-// invirtiendo resultadoBitsInvertidos...
-function devuelveCadenabits(resultadoBitsInvertidos) {
-
-  let arr = resultadoBitsInvertidos.split(""); // transformando de cadena a arreglo...
-  let longitud = arr.length - 1, aux;
-  let mitad = parseInt(longitud / 2), k;
-
-  // algoritmo para cambiar de posicion los bits...
-  for (let i = 0; i <= mitad; i++) {
-
-    k = longitud; // k es la longitud de saltos que será recorrida de derecha a izquierda por cada iteración
-    k -= i;
-
-    for (let j = longitud; j > mitad; j--) {
-
-      if (j == k) { 
-          // cambiando posición de los bits...
-        aux = arr[i];
-        arr[i] = arr[j];
-        arr[j] = aux;
-
-      }
-
-    }
-
-    let bits = arr.toString().replace(/(,)/gm, "");   // convirtiendo de vector a cadena...
-    return bits;
-
-  }
-}
-
 // funcion para invertir bits...
 function invertirBits(var_arr) {
 
