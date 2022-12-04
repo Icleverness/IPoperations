@@ -149,6 +149,8 @@ function main() {
 
   arr_ip = cadena.split(".");
   arr_ip = funcion_restringe(arr_ip); // función para restringir entrada y convertir de cadena a entero...
+  pre = Number(pre);
+  restringe_prefijo(pre);
 
   if (restringe == true) {
 
@@ -161,7 +163,6 @@ function main() {
     salida = `${salida}Convirtiendo IP a bits... <br> ${cadena}<br><br>`;
 
     document.getElementById("content").innerHTML = salida;
-
   }
-  
+
 }
