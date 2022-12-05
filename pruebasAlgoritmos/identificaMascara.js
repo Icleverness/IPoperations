@@ -20,7 +20,7 @@ for (let i = 0; i < 4; i++) {//agregar ceros a la parte derecha según prefijo..
   mascara_subred[i] = cadena;
 }
 
-console.log(mascara_subred);
+// console.log(mascara_subred);
 
 for (let i = 0; i < 4; i++) {// encuentra máscara de subred...
 

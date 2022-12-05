@@ -104,14 +104,36 @@ function restringe_prefijo(p) {
 }
 
 // identificando mascara de subred...
-function BuscarMascaraSubred(prefijo) {
+function BuscarMascaraSubred(mascara) {
+    let arr_aux = [],
+    cadena;
+
+  for (let i = 0; i < 4; i++) {
+    // encuentra máscara de subred...
+
+    let c = 0,
+      octeto = 0;
+    cadena = mascara[i];
+    arr_aux = cadena.split("");
+    for (let j = 7; j >= 0; j--) {
+      let aux;
+
+      aux = Number(arr_aux[j]);
+      octeto += aux * Math.pow(2, c);
+      c += 1;
+    }
+    mascara[i] = octeto;
+  }
+  return mascara;
+}
+
+function muestraMascaraBits(prefijo) {
   let mascara_subred = ["11111111", "11111111", "11111111", "11111111"];
   let contador = 0,
     arr_aux = [],
     cadena;
 
-  for (let i = 0; i < 4; i++) {
-    //agregar ceros a la parte derecha según prefijo...
+  for (let i = 0; i < 4; i++) {//agregar ceros a la parte derecha según prefijo...
 
     cadena = mascara_subred[i];
     arr_aux = cadena.split("");
@@ -126,23 +148,7 @@ function BuscarMascaraSubred(prefijo) {
     cadena = arr_aux.toString().replace(/(,)/gm, "");
     mascara_subred[i] = cadena;
   }
-
-  for (let i = 0; i < 4; i++) {
-    // encuentra máscara de subred...
-
-    let c = 0,
-      octeto = 0;
-    cadena = mascara_subred[i];
-    arr_aux = cadena.split("");
-    for (let j = 7; j >= 0; j--) {
-      let aux;
-
-      aux = Number(arr_aux[j]);
-      octeto += aux * Math.pow(2, c);
-      c += 1;
-    }
-    mascara_subred[i] = octeto;
-  }
+  return mascara_subred;
 }
 
 // funcion main...
@@ -150,7 +156,7 @@ function main() {
   let pre = prefijo.value;
   let cadena = dic_ip.value;
   let arr_ip = [];
-  let mascara_subred;
+  let mascara_subred, mascara_bits = [];
 
   arr_ip = cadena.split(".");
   arr_ip = funcion_restringe(arr_ip); // función para restringir entrada y convertir de cadena a entero...
@@ -161,12 +167,28 @@ function main() {
     // console.log(arr_ip);
     arr_ip = convierteIp_bits(arr_ip); // funcion para convertir ip a bits
     arr_ip = invertirBits(arr_ip); // funcion para invertir bits...
+
     cadena = arr_ip.toString();
     cadena = cadena.replaceAll(",", ".");
+
     salida = `${salida}Convirtiendo IP a bits... <br> ${cadena}<br><br>`;
     salida = `${salida}Identificando máscara de subred... <br>`;
-    mascara_subred = BuscarMascaraSubred(pre);
 
+    mascara_bits = muestraMascaraBits(pre);
+
+    cadena = mascara_bits.toString();
+    cadena = cadena.replaceAll(",", ".");
+
+    salida = `${salida}${cadena}<br>`;
+
+    mascara_subred = BuscarMascaraSubred(mascara_bits);
+    
+    cadena = mascara_subred.toString();
+    cadena = cadena.replaceAll(",", ".");
+
+    salida = `${salida}${cadena}<br>`;
+   
+    // console.log(mascara_bits);
     document.getElementById("content").innerHTML = salida;
   }
   restringe_pre = false;
