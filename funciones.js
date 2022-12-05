@@ -130,6 +130,7 @@ function main() {
   let pre = prefijo.value;
   let cadena = dic_ip.value;
   let arr_ip = [];
+  let mascara_subred = [11111111, 11111111, 11111111, 11111111];
 
   arr_ip = cadena.split(".");
   arr_ip = funcion_restringe(arr_ip); // función para restringir entrada y convertir de cadena a entero...
@@ -138,12 +139,13 @@ function main() {
   if (restringe == true && restringe_pre == true) {
 
     let salida = `Analizando IP: ${cadena} /${pre}<br><br>`;
-    console.log(arr_ip); 
+    // console.log(arr_ip); 
     arr_ip = convierteIp_bits(arr_ip);  // funcion para convertir ip a bits
     arr_ip = invertirBits(arr_ip); // funcion para invertir bits...
     cadena = arr_ip.toString();
     cadena = cadena.replaceAll(',', '.');
     salida = `${salida}Convirtiendo IP a bits... <br> ${cadena}<br><br>`;
+    salida = `${salida}Identificando máscara de subred... <br>`;
 
     document.getElementById("content").innerHTML = salida;
   }
