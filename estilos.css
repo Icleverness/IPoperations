@@ -11,7 +11,7 @@
 .cuadro-salida{
     height: 400px;
 }
-@media (max-width: 62em){
+@media (max-width: 60em){
     .titulo{
         font-size: 3rem;
     }
