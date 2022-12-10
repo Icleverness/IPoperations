@@ -13,7 +13,7 @@
     font-family: 'Space Mono', monospace;
 }
 .cuadro-salida{
-    height: 400px;
+    height: 450px;
 }
 @media (max-width: 60em){
     .titulo{

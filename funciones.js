@@ -197,6 +197,11 @@ function main() {
     Gateway = Gateway.replaceAll(",", ".");
     salida = `${salida}${aux}<br><br>Gateway recomendada...<br>${Gateway}`;
 
+    arr_ip[3] = 255;
+    broatcast = arr_ip.toString();
+    broatcast = broatcast.replaceAll(",", ".");
+
+    salida = `${salida}<br><br>Identificando Broatcast...<br>${broatcast}<br><br>`;
 
 
     document.getElementById("content").innerHTML = salida;
