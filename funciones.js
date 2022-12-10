@@ -2,7 +2,7 @@ let dic_ip = document.getElementById("dec");
 let prefijo = document.getElementById("pre");
 let resto,
   resultadoBits = "",
-  restringe = false,
+  restringe_ip = false,
   restringe_pre = false;
 
 // funcion para invertir bits...
@@ -60,7 +60,7 @@ function funcion_restringe(var_arr) {
       var_arr[i] = aux;
     }
 
-    restringe = true;
+    restringe_ip = true;
     return var_arr;
   }
 }
@@ -153,42 +153,52 @@ function muestraMascaraBits(prefijo) {
 
 // funcion main...
 function main() {
-  let pre = prefijo.value;
-  let cadena = dic_ip.value;
-  let arr_ip = [];
-  let mascara_subred, mascara_bits = [];
+  let pre = prefijo.value; // guarda prefijo...
+  let aux = dic_ip.value; // almacena temporalmente a ip...
+  let arr_ip = [], arr_bits = []; 
+  let mascara_subred = [], mascara_bits = [];
 
-  arr_ip = cadena.split(".");
+  arr_ip = aux.split("."); // guarda cada octeto de ip en una posicion de array...
   arr_ip = funcion_restringe(arr_ip); // función para restringir entrada y convertir de cadena a entero...
-  pre = restringe_prefijo(pre);
+  pre = restringe_prefijo(pre); // función para restringir prefijo...
 
-  if (restringe == true && restringe_pre == true) {
-    let salida = `Analizando IP: ${cadena} /${pre}<br><br>`;
-    // console.log(arr_ip);
-    arr_ip = convierteIp_bits(arr_ip); // funcion para convertir ip a bits
-    arr_ip = invertirBits(arr_ip); // funcion para invertir bits...
+  if (restringe_ip == true && restringe_pre == true) { //evalua si prefijo y direccion ip son válidas...
+    let salida = `Analizando IP: ${aux} /${pre}<br><br>`;
+    let Gateway, broatcast;
 
-    cadena = arr_ip.toString();
-    cadena = cadena.replaceAll(",", ".");
+    for (let i = 0; i < 4; i++) { // creando otro array para evitar mutabilidad...
+      arr_bits.push(arr_ip[i]);
+    }
 
-    salida = `${salida}Convirtiendo IP a bits... <br> ${cadena}<br><br>`;
+    arr_bits = convierteIp_bits(arr_bits); // funcion para convertir ip a bits
+    arr_bits = invertirBits(arr_bits); // funcion para invertir bits...
+    console.log(arr_ip);
+
+    aux = arr_bits.toString(); // convierte arreglo a cadena
+    aux = aux.replaceAll(",", "."); // reemplaza la coma por el punto
+
+    salida = `${salida}Convirtiendo IP a bits... <br> ${aux}<br><br>`;
     salida = `${salida}Identificando máscara de subred... <br>`;
 
-    mascara_bits = muestraMascaraBits(pre);
+    mascara_bits = muestraMascaraBits(pre); // muestra máscara de subred a bits...
 
-    cadena = mascara_bits.toString();
-    cadena = cadena.replaceAll(",", ".");
+    aux = mascara_bits.toString();
+    aux = aux.replaceAll(",", ".");
 
-    salida = `${salida}${cadena}<br>`;
+    salida = `${salida}${aux}<br>`;
 
-    mascara_subred = BuscarMascaraSubred(mascara_bits);
+    mascara_subred = BuscarMascaraSubred(mascara_bits); // asigna máscara de subred...
     
-    cadena = mascara_subred.toString();
-    cadena = cadena.replaceAll(",", ".");
-
-    salida = `${salida}${cadena}<br>`;
+    aux = mascara_subred.toString();
+    aux = aux.replaceAll(",", ".");
    
-    // console.log(mascara_bits);
+    arr_ip[3] = 1;
+    Gateway = arr_ip.toString();
+    Gateway = Gateway.replaceAll(",", ".");
+    salida = `${salida}${aux}<br><br>Gateway recomendada...<br>${Gateway}`;
+
+
+
     document.getElementById("content").innerHTML = salida;
   }
   restringe_pre = false;
