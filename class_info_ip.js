@@ -11,9 +11,7 @@ export class operaciones {
     funcion_restringe_ip() {
         let aux, contador = 0, bool = true;
         for (let value of this.ip) {
-            if (isNaN(Number(value))) {
-                bool = false;
-            }
+            if (isNaN(Number(value))) bool = false;
             contador += 1;
         }
         if (bool == true && contador == 4) {
@@ -98,9 +96,7 @@ export class operaciones {
 
             for (let j = 0; j < 8; j++) {
                 contador += 1;
-                if (contador > this.pre) {
-                    arr_aux[j] = "0";
-                }
+                if (contador > this.pre) arr_aux[j] = "0";
             }
             cadena = arr_aux.toString().replace(/(,)/gm, "");
             mascara_subred[i] = cadena;

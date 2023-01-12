@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&family=Space+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <title>Operationsip</title>
-    </head>
+</head>
+
 <body class="body">
     <div class="container-fluid p-0 m-0">
         <h1 class="titulo mb-5 pb-3 text-center bg-secondary text-light">Operaciones IP</h1>
@@ -19,18 +22,23 @@
                     <h1 class="subtitulo text-center text-white bg-primary">Información de IP</h1>
                     <div class="col-lg-7 col-md-8 col-sm-9">
                         <div class="input-group mb-3">
-                            <input type="text" id="dec" class="form-control border-primary" placeholder="192.168.10.2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" id="dec" class="form-control border-primary" placeholder="192.168.10.2"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <span class="input-group-text border-primary" id="basic-addon2">/</span>
                             <div>
-                                <input type="text" id="pre" class="form-control rounded-0 rounded-end border-primary" style="width: 50px;" placeholder="30" aria-label="Server">
+                                <input type="text" id="pre" class="form-control rounded-0 rounded-end border-primary"
+                                    style="width: 50px;" placeholder="30" aria-label="Server">
                             </div>
-                            <button type="button" class="btn btn-outline-primary ms-2 rounded-start" id="botonGenerar">Generar</button>
+                            <button type="button" class="btn btn-outline-primary ms-2 rounded-start"
+                                id="botonGenerar">Generar</button>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-8 col-sm-9">
-                        <div id="content" class="container-fluid text-break p-1 bg-white border border-primary rounded-3 cuadro-salida salida"></div>
+                        <div id="content"
+                            class="container-fluid text-break p-1 bg-white border border-primary rounded-3 cuadro-salida salida">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,18 +47,23 @@
                     <h1 class="subtitulo text-center text-white bg-danger">División de Subredes</h1>
                     <div class="col-lg-7 col-md-8 col-sm-9">
                         <div class="input-group mb-3">
-                            <input type="text" id="dec" class="form-control border-danger" placeholder="192.168.10.2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" id="dec" class="form-control border-danger" placeholder="192.168.10.2"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <span class="input-group-text border-danger" id="basic-addon2">nº</span>
                             <div>
-                                <input type="text" id="pre" class="form-control rounded-0 rounded-end border-danger" style="width: 50px;" placeholder="30" aria-label="Server">
+                                <input type="text" id="pre" class="form-control rounded-0 rounded-end border-danger"
+                                    style="width: 50px;" placeholder="30" aria-label="Server">
                             </div>
-                            <button type="button" class="btn btn-outline-danger ms-2 rounded-start" onclick="">Calcular</button>
+                            <button type="button" class="btn btn-outline-danger ms-2 rounded-start"
+                                onclick="">Calcular</button>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-8 col-sm-9">
-                        <div id="content" class="container-fluid text-break p-1 bg-white border border-danger rounded-3 cuadro-salida salida"></div>
+                        <div id="content"
+                            class="container-fluid text-break p-1 bg-white border border-danger rounded-3 cuadro-salida salida">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,4 +73,5 @@
     <!-- <script src="/class_info_ip.js" type="module"></script> -->
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
